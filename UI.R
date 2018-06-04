@@ -2,7 +2,7 @@
 library(shiny)
 library(shinythemes)
 library(keras)
-library(knitr)
+
 
 library(dplyr)
 library(wordcloud2)
