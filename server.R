@@ -38,7 +38,7 @@ output$image<-renderImage({
   src=input$file
   src=src$datapath
   if(is.null(src)){
-    return(list(src=as.character(paste("www/",input$Image_class,sep="")), height="350"))
+    return(list(src=as.character(paste(input$Image_class)), height="350"))
   }
     else{
       return(list(src=src, height="350"))
@@ -55,7 +55,7 @@ output$word<-renderWordcloud2({file1<-input$file
 
 
 
-image_path<-if(is.null(file1$datapath)){as.character(paste("www/",input$Image_class,sep=""))}else{file1$datapath}
+image_path<-if(is.null(file1$datapath)){as.character(paste(input$Image_class))}else{file1$datapath}
 
 img<-image_load(image_path, target_size=c(224,224))
 
@@ -106,7 +106,7 @@ wordcloud2(data = d,size=input$Font,color=as.character(paste(input$color)))
 
 output$ggplot<-renderPlot({
   file1<-input$file
-  image_path<-if(is.null(file1$datapath)){as.character(paste("www/",input$Image_class,sep=""))}else{file1$datapath}
+  image_path<-if(is.null(file1$datapath)){as.character(paste(input$Image_class))}else{file1$datapath}
   img<-image_load(image_path, target_size=c(224,224))
   x<-image_to_array(img)
   
