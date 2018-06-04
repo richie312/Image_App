@@ -3,7 +3,7 @@ library(shiny)
 library(shinythemes)
 library(keras)
 library(knitr)
-library(devtools)
+
 library(dplyr)
 library(wordcloud2)
 library(tm)
