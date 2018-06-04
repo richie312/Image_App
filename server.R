@@ -18,14 +18,14 @@ library(ggplot2)
 ##setwd("C:/Users/Richie/Desktop/Image_App")
 
 ## Download the below pretrained mdoels from the internet
-model_resnet<- application_resnet50(weights = 'imagenet')
+#model_resnet<- application_resnet50(weights = 'imagenet')
 #model_vgg16<-application_vgg16(weights="imagenet", include_top = FALSE)
-model_inception<-application_inception_v3(weights = "imagenet")
+#model_inception<-application_inception_v3(weights = "imagenet")
 
 ## Load the previously saved models
 
-#model_resnet<-load_model_hdf5(file = "model_resnet")
-#model_inception<-load_model_hdf5(file = "model_inception")
+model_resnet<-load_model_hdf5(file = "model_resnet")
+model_inception<-load_model_hdf5(file = "model_inception")
 
 
 
