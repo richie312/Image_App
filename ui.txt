@@ -1,0 +1,59 @@
+
+
+library(shiny)
+library(shinythemes)
+library(keras)
+library(knitr)
+library(devtools)
+library(dplyr)
+library(wordcloud)
+library(tm)
+library(RColorBrewer)
+library(mgcv)
+library(ggplot2)
+
+
+shinyUI(fluidPage(
+  theme = shinytheme('darkly'),
+  themeSelector(),
+  
+  
+  navbarPage(
+    title = "Image_App",  
+    id= "nav",
+    tabPanel("Image", value ="Image",
+             
+             sidebarLayout( 
+               
+               sidebarPanel(fileInput(inputId = "file",label = "File", buttonLabel="Upload Image",
+                                       accept = c(
+                                         ".jpg",
+                                         ".jpeg",
+                                         ".png")),
+                             helpText("Default max. file size is 10MB"),
+                            selectInput(inputId = "Model", label = "Model", 
+                                        choices = c("resnet50","inception"),
+                                        selected = "inception")
+                             
+               ),
+               
+               
+               
+               
+               mainPanel(fluidRow(
+                 imageOutput(outputId="image", width="350px",height="300px"),  
+                 column(4,plotOutput(outputId="word", width="350px",height="300px")),
+                 column(4,plotOutput(outputId="ggplot", width="350px",height="300px")))
+                 
+                 
+                 
+                            )
+               
+                       )
+                  )
+    
+   
+               )
+          )    
+    ) 
+    
